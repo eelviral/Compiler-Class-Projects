@@ -1,0 +1,110 @@
+// Math expression parser specification.
+// Author: Eddie Elvira
+// Date: 2/28/22
+
+%{
+import java.io.*;
+import java.nio.charset.*;
+%}
+
+%class     Parser
+%interface ParserTokens
+%semantic  int : yylval
+%get       token
+%next      yylex()
+
+%token NUMBER ADDOP SUBOP MULOP DIVOP LPAREN RPAREN UNKNOWN DOUBLEOP
+%left ADDOP SUBOP MULOP DIVOP
+
+%%
+
+mathexpr:	exp					{ printResult($1); }
+;
+
+exp		:	exp ADDOP exp		{ $$ = $1 + $3; }
+		|	exp SUBOP exp		{ $$ = $1 - $3; }
+		|	term				{ $$ = $1; }
+;
+
+term	:	term MULOP term		{ $$ = $1 * $3; }
+		|	term DIVOP term		{ $$ = $1 / $3; }
+		| 	factor				{ $$ = $1; }	
+;
+
+factor	:	LPAREN exp RPAREN	{ $$ = $2; }
+		|	number				{ $$ = $1; }
+;
+
+number	:	NUMBER				{ $$ = $1; }
+;
+
+%%
+
+int yylval; // current token value
+int token;  // current token
+
+// Variable containing current expression
+private String line = "";
+
+// Prints an accept result
+private void printResult(int value)
+{
+	System.out.println("ACCEPT");
+	System.out.println("Expression: " + line);
+	System.out.println("Result: " + value);
+}
+
+// Prints reject result with custom error message and error details
+public void errorMessage(String error)
+{
+	// Get position of current error
+	int position = lexer.getCol() + 1;
+	
+	System.out.println("REJECT");
+	System.out.println("Error: " + error + " at character " + position);
+	System.out.println("Expression: " + line);
+	
+	// Generate the whitespace to correctly place the error marker ^
+	int n = 11 + position;
+    String whitespace = String.format("%1$"+n+"s", "");
+    
+    System.out.println(whitespace + "^");
+	
+}
+	
+// Reference to the lexer object
+private static Yylex lexer;
+
+// Interface to the lexer
+private int yylex()
+{
+    int retVal = ENDINPUT;
+    try
+	{
+		retVal = lexer.yylex();
+    }
+	catch (IOException e)
+	{
+		System.err.println("IO Error:" + e);
+    }
+    
+    return retVal;
+}
+
+// Default error handling
+public void yyerror(String error)
+{
+	// uses custom error message if defined in mathexpr.errs
+	errorMessage(yyerrno<0 ? error : yyerrmsgs[yyerrno]);
+}
+
+// constructor taking a String
+public Parser(String expr)
+{
+	line = expr;
+	InputStream lineStream = new ByteArrayInputStream(line.getBytes((Charset.forName("UTF-8"))));
+	InputStreamReader r = new InputStreamReader(lineStream);
+	lexer = new Yylex(r, this);
+	token = yylex(); // prime the pump
+}
+

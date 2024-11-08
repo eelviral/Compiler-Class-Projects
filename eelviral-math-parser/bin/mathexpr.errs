@@ -1,0 +1,38 @@
+"empty parentheses" 
+	: LPAREN RPAREN ;	
+	
+"missing right operand" 
+	: exp ADDOP
+	| exp SUBOP
+	| exp MULOP
+	| exp DIVOP
+	| exp ADDOP RPAREN
+	| exp SUBOP RPAREN
+	;
+	
+"missing left operand"
+	: ADDOP exp
+	| SUBOP exp
+	| MULOP exp
+	| DIVOP exp
+	;
+	
+"missing closing parenthesis"
+	: LPAREN exp ;
+	
+"unexpected closing parenthesis"
+	: exp RPAREN ;
+
+"missing operator"
+    : NUMBER NUMBER ;
+    
+"illegal double operator"
+	: DOUBLEOP
+	| NUMBER DOUBLEOP
+	;
+	
+"invalid character"
+	: UNKNOWN
+	| NUMBER UNKNOWN
+	;
+	

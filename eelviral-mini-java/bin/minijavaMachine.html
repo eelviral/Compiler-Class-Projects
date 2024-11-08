@@ -1,0 +1,1725 @@
+<html>
+<title>Generated machine for Parser</title>
+<body>
+<h1>Generated machine for Parser</h1>
+<pre>
+// Output created by jacc on Tue Apr 04 14:12:29 EDT 2023
+
+<hr><a name="st0"><b>state 0 (entry on Program)</b></a>
+    $accept : _Program $end
+
+    CLASS <a href="#st3">shift 3</a>
+    . error
+
+    Program <a href="#st1">goto 1</a>
+    MainClass <a href="#st2">goto 2</a>
+
+<hr><a name="st1"><b>state 1 (entry on Program)</b></a>
+    $accept : Program_$end
+
+    $end accept
+    . error
+
+<hr><a name="st2"><b>state 2 (entry on MainClass)</b></a>
+    Program : MainClass_ClassDeclarations    (1)
+    ClassDeclarations : _    (4)
+
+    CLASS <a href="#st7">shift 7</a>
+    $end reduce 4
+    . error
+
+    ClassDeclarationList <a href="#st4">goto 4</a>
+    ClassDeclarations <a href="#st5">goto 5</a>
+    ClassDeclaration <a href="#st6">goto 6</a>
+
+<hr><a name="st3"><b>state 3 (entry on CLASS)</b></a>
+    MainClass : CLASS_Identifier LBRACE MainMethod RBRACE    (2)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    . error
+
+    Identifier <a href="#st8">goto 8</a>
+
+<hr><a name="st4"><b>state 4 (entry on ClassDeclarationList)</b></a>
+    ClassDeclarationList : ClassDeclarationList_ClassDeclaration    (7)
+    ClassDeclarations : ClassDeclarationList_    (5)
+
+    CLASS <a href="#st7">shift 7</a>
+    $end reduce 5
+    . error
+
+    ClassDeclaration <a href="#st10">goto 10</a>
+
+<hr><a name="st5"><b>state 5 (entry on ClassDeclarations)</b></a>
+    Program : MainClass ClassDeclarations_    (1)
+
+    $end reduce 1
+    . error
+
+<hr><a name="st6"><b>state 6 (entry on ClassDeclaration)</b></a>
+    ClassDeclarationList : ClassDeclaration_    (6)
+
+    $end reduce 6
+    CLASS reduce 6
+    . error
+
+<hr><a name="st7"><b>state 7 (entry on CLASS)</b></a>
+    ClassDeclaration : CLASS_Identifier ExtendsClause LBRACE VarDeclarations MethodDeclarations RBRACE    (8)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    . error
+
+    Identifier <a href="#st11">goto 11</a>
+
+<hr><a name="st8"><b>state 8 (entry on Identifier)</b></a>
+    MainClass : CLASS Identifier_LBRACE MainMethod RBRACE    (2)
+
+    LBRACE <a href="#st12">shift 12</a>
+    . error
+
+<hr><a name="st9"><b>state 9 (entry on IDENTIFIER)</b></a>
+    Identifier : IDENTIFIER_    (60)
+
+    RPAREN reduce 60
+    RBRACK reduce 60
+    IDENTIFIER reduce 60
+    COMMA reduce 60
+    SEMI reduce 60
+    ASSIGN reduce 60
+    MULOP reduce 60
+    LT reduce 60
+    EXTENDS reduce 60
+    LPAREN reduce 60
+    SUBOP reduce 60
+    LBRACK reduce 60
+    LBRACE reduce 60
+    DOT reduce 60
+    AND reduce 60
+    ADDOP reduce 60
+    . error
+
+<hr><a name="st10"><b>state 10 (entry on ClassDeclaration)</b></a>
+    ClassDeclarationList : ClassDeclarationList ClassDeclaration_    (7)
+
+    $end reduce 7
+    CLASS reduce 7
+    . error
+
+<hr><a name="st11"><b>state 11 (entry on Identifier)</b></a>
+    ExtendsClause : _    (9)
+    ClassDeclaration : CLASS Identifier_ExtendsClause LBRACE VarDeclarations MethodDeclarations RBRACE    (8)
+
+    EXTENDS <a href="#st14">shift 14</a>
+    LBRACE reduce 9
+    . error
+
+    ExtendsClause <a href="#st13">goto 13</a>
+
+<hr><a name="st12"><b>state 12 (entry on LBRACE)</b></a>
+    MainClass : CLASS Identifier LBRACE_MainMethod RBRACE    (2)
+
+    PUBLIC <a href="#st16">shift 16</a>
+    . error
+
+    MainMethod <a href="#st15">goto 15</a>
+
+<hr><a name="st13"><b>state 13 (entry on ExtendsClause)</b></a>
+    ClassDeclaration : CLASS Identifier ExtendsClause_LBRACE VarDeclarations MethodDeclarations RBRACE    (8)
+
+    LBRACE <a href="#st17">shift 17</a>
+    . error
+
+<hr><a name="st14"><b>state 14 (entry on EXTENDS)</b></a>
+    ExtendsClause : EXTENDS_Identifier    (10)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    . error
+
+    Identifier <a href="#st18">goto 18</a>
+
+<hr><a name="st15"><b>state 15 (entry on MainMethod)</b></a>
+    MainClass : CLASS Identifier LBRACE MainMethod_RBRACE    (2)
+
+    RBRACE <a href="#st19">shift 19</a>
+    . error
+
+<hr><a name="st16"><b>state 16 (entry on PUBLIC)</b></a>
+    MainMethod : PUBLIC_STATIC VOID MAIN LPAREN STRING LBRACK RBRACK Identifier RPAREN LBRACE Statement RBRACE    (3)
+
+    STATIC <a href="#st20">shift 20</a>
+    . error
+
+<hr><a name="st17"><b>state 17 (entry on LBRACE)</b></a>
+    ClassDeclaration : CLASS Identifier ExtendsClause LBRACE_VarDeclarations MethodDeclarations RBRACE    (8)
+    VarDeclarations : _    (11)
+
+    INT reduce 11
+    RBRACE reduce 11
+    PUBLIC reduce 11
+    IDENTIFIER reduce 11
+    BOOLEAN reduce 11
+    . error
+
+    VarDeclarations <a href="#st21">goto 21</a>
+
+<hr><a name="st18"><b>state 18 (entry on Identifier)</b></a>
+    ExtendsClause : EXTENDS Identifier_    (10)
+
+    LBRACE reduce 10
+    . error
+
+<hr><a name="st19"><b>state 19 (entry on RBRACE)</b></a>
+    MainClass : CLASS Identifier LBRACE MainMethod RBRACE_    (2)
+
+    $end reduce 2
+    CLASS reduce 2
+    . error
+
+<hr><a name="st20"><b>state 20 (entry on STATIC)</b></a>
+    MainMethod : PUBLIC STATIC_VOID MAIN LPAREN STRING LBRACK RBRACK Identifier RPAREN LBRACE Statement RBRACE    (3)
+
+    VOID <a href="#st22">shift 22</a>
+    . error
+
+<hr><a name="st21"><b>state 21 (entry on VarDeclarations)</b></a>
+    MethodDeclarations : _    (14)
+    ClassDeclaration : CLASS Identifier ExtendsClause LBRACE VarDeclarations_MethodDeclarations RBRACE    (8)
+    VarDeclarations : VarDeclarations_VarDeclaration    (12)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    BOOLEAN <a href="#st29">shift 29</a>
+    INT <a href="#st30">shift 30</a>
+    PUBLIC <a href="#st31">shift 31</a>
+    RBRACE reduce 14
+    . error
+
+    Identifier <a href="#st23">goto 23</a>
+    MethodDeclaration <a href="#st24">goto 24</a>
+    MethodDeclarationList <a href="#st25">goto 25</a>
+    MethodDeclarations <a href="#st26">goto 26</a>
+    Type <a href="#st27">goto 27</a>
+    VarDeclaration <a href="#st28">goto 28</a>
+
+<hr><a name="st22"><b>state 22 (entry on VOID)</b></a>
+    MainMethod : PUBLIC STATIC VOID_MAIN LPAREN STRING LBRACK RBRACK Identifier RPAREN LBRACE Statement RBRACE    (3)
+
+    MAIN <a href="#st32">shift 32</a>
+    . error
+
+<hr><a name="st23"><b>state 23 (entry on Identifier)</b></a>
+    Type : Identifier_    (31)
+
+    IDENTIFIER reduce 31
+    . error
+
+<hr><a name="st24"><b>state 24 (entry on MethodDeclaration)</b></a>
+    MethodDeclarationList : MethodDeclaration_    (16)
+
+    RBRACE reduce 16
+    PUBLIC reduce 16
+    . error
+
+<hr><a name="st25"><b>state 25 (entry on MethodDeclarationList)</b></a>
+    MethodDeclarationList : MethodDeclarationList_MethodDeclaration    (17)
+    MethodDeclarations : MethodDeclarationList_    (15)
+
+    PUBLIC <a href="#st31">shift 31</a>
+    RBRACE reduce 15
+    . error
+
+    MethodDeclaration <a href="#st33">goto 33</a>
+
+<hr><a name="st26"><b>state 26 (entry on MethodDeclarations)</b></a>
+    ClassDeclaration : CLASS Identifier ExtendsClause LBRACE VarDeclarations MethodDeclarations_RBRACE    (8)
+
+    RBRACE <a href="#st34">shift 34</a>
+    . error
+
+<hr><a name="st27"><b>state 27 (entry on Type)</b></a>
+    VarDeclaration : Type_Identifier SEMI    (13)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    . error
+
+    Identifier <a href="#st35">goto 35</a>
+
+<hr><a name="st28"><b>state 28 (entry on VarDeclaration)</b></a>
+    VarDeclarations : VarDeclarations VarDeclaration_    (12)
+
+    RETURN reduce 12
+    INT reduce 12
+    RBRACE reduce 12
+    PUBLIC reduce 12
+    IF reduce 12
+    PRINTLN reduce 12
+    IDENTIFIER reduce 12
+    WHILE reduce 12
+    LBRACE reduce 12
+    BOOLEAN reduce 12
+    . error
+
+<hr><a name="st29"><b>state 29 (entry on BOOLEAN)</b></a>
+    Type : BOOLEAN_    (30)
+
+    IDENTIFIER reduce 30
+    . error
+
+<hr><a name="st30"><b>state 30 (entry on INT)</b></a>
+    Type : INT_    (28)
+    Type : INT_LBRACK RBRACK    (29)
+
+    LBRACK <a href="#st36">shift 36</a>
+    IDENTIFIER reduce 28
+    . error
+
+<hr><a name="st31"><b>state 31 (entry on PUBLIC)</b></a>
+    MethodDeclaration : PUBLIC_Type Identifier LPAREN TypeIdentifiers RPAREN LBRACE VarDeclarations Statements RETURN Expression SEMI RBRACE    (18)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    BOOLEAN <a href="#st29">shift 29</a>
+    INT <a href="#st30">shift 30</a>
+    . error
+
+    Identifier <a href="#st23">goto 23</a>
+    Type <a href="#st37">goto 37</a>
+
+<hr><a name="st32"><b>state 32 (entry on MAIN)</b></a>
+    MainMethod : PUBLIC STATIC VOID MAIN_LPAREN STRING LBRACK RBRACK Identifier RPAREN LBRACE Statement RBRACE    (3)
+
+    LPAREN <a href="#st38">shift 38</a>
+    . error
+
+<hr><a name="st33"><b>state 33 (entry on MethodDeclaration)</b></a>
+    MethodDeclarationList : MethodDeclarationList MethodDeclaration_    (17)
+
+    RBRACE reduce 17
+    PUBLIC reduce 17
+    . error
+
+<hr><a name="st34"><b>state 34 (entry on RBRACE)</b></a>
+    ClassDeclaration : CLASS Identifier ExtendsClause LBRACE VarDeclarations MethodDeclarations RBRACE_    (8)
+
+    $end reduce 8
+    CLASS reduce 8
+    . error
+
+<hr><a name="st35"><b>state 35 (entry on Identifier)</b></a>
+    VarDeclaration : Type Identifier_SEMI    (13)
+
+    SEMI <a href="#st39">shift 39</a>
+    . error
+
+<hr><a name="st36"><b>state 36 (entry on LBRACK)</b></a>
+    Type : INT LBRACK_RBRACK    (29)
+
+    RBRACK <a href="#st40">shift 40</a>
+    . error
+
+<hr><a name="st37"><b>state 37 (entry on Type)</b></a>
+    MethodDeclaration : PUBLIC Type_Identifier LPAREN TypeIdentifiers RPAREN LBRACE VarDeclarations Statements RETURN Expression SEMI RBRACE    (18)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    . error
+
+    Identifier <a href="#st41">goto 41</a>
+
+<hr><a name="st38"><b>state 38 (entry on LPAREN)</b></a>
+    MainMethod : PUBLIC STATIC VOID MAIN LPAREN_STRING LBRACK RBRACK Identifier RPAREN LBRACE Statement RBRACE    (3)
+
+    STRING <a href="#st42">shift 42</a>
+    . error
+
+<hr><a name="st39"><b>state 39 (entry on SEMI)</b></a>
+    VarDeclaration : Type Identifier SEMI_    (13)
+
+    RETURN reduce 13
+    INT reduce 13
+    RBRACE reduce 13
+    PUBLIC reduce 13
+    IF reduce 13
+    PRINTLN reduce 13
+    IDENTIFIER reduce 13
+    WHILE reduce 13
+    LBRACE reduce 13
+    BOOLEAN reduce 13
+    . error
+
+<hr><a name="st40"><b>state 40 (entry on RBRACK)</b></a>
+    Type : INT LBRACK RBRACK_    (29)
+
+    IDENTIFIER reduce 29
+    . error
+
+<hr><a name="st41"><b>state 41 (entry on Identifier)</b></a>
+    MethodDeclaration : PUBLIC Type Identifier_LPAREN TypeIdentifiers RPAREN LBRACE VarDeclarations Statements RETURN Expression SEMI RBRACE    (18)
+
+    LPAREN <a href="#st43">shift 43</a>
+    . error
+
+<hr><a name="st42"><b>state 42 (entry on STRING)</b></a>
+    MainMethod : PUBLIC STATIC VOID MAIN LPAREN STRING_LBRACK RBRACK Identifier RPAREN LBRACE Statement RBRACE    (3)
+
+    LBRACK <a href="#st44">shift 44</a>
+    . error
+
+<hr><a name="st43"><b>state 43 (entry on LPAREN)</b></a>
+    MethodDeclaration : PUBLIC Type Identifier LPAREN_TypeIdentifiers RPAREN LBRACE VarDeclarations Statements RETURN Expression SEMI RBRACE    (18)
+    TypeIdentifiers : _    (19)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    BOOLEAN <a href="#st29">shift 29</a>
+    INT <a href="#st30">shift 30</a>
+    RPAREN reduce 19
+    . error
+
+    Identifier <a href="#st23">goto 23</a>
+    Type <a href="#st45">goto 45</a>
+    TypeIdentifier <a href="#st46">goto 46</a>
+    TypeIdentifierList <a href="#st47">goto 47</a>
+    TypeIdentifiers <a href="#st48">goto 48</a>
+
+<hr><a name="st44"><b>state 44 (entry on LBRACK)</b></a>
+    MainMethod : PUBLIC STATIC VOID MAIN LPAREN STRING LBRACK_RBRACK Identifier RPAREN LBRACE Statement RBRACE    (3)
+
+    RBRACK <a href="#st49">shift 49</a>
+    . error
+
+<hr><a name="st45"><b>state 45 (entry on Type)</b></a>
+    TypeIdentifier : Type_Identifier    (23)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    . error
+
+    Identifier <a href="#st50">goto 50</a>
+
+<hr><a name="st46"><b>state 46 (entry on TypeIdentifier)</b></a>
+    TypeIdentifierList : TypeIdentifier_    (21)
+
+    RPAREN reduce 21
+    COMMA reduce 21
+    . error
+
+<hr><a name="st47"><b>state 47 (entry on TypeIdentifierList)</b></a>
+    TypeIdentifierList : TypeIdentifierList_COMMA TypeIdentifier    (22)
+    TypeIdentifiers : TypeIdentifierList_    (20)
+
+    COMMA <a href="#st51">shift 51</a>
+    RPAREN reduce 20
+    . error
+
+<hr><a name="st48"><b>state 48 (entry on TypeIdentifiers)</b></a>
+    MethodDeclaration : PUBLIC Type Identifier LPAREN TypeIdentifiers_RPAREN LBRACE VarDeclarations Statements RETURN Expression SEMI RBRACE    (18)
+
+    RPAREN <a href="#st52">shift 52</a>
+    . error
+
+<hr><a name="st49"><b>state 49 (entry on RBRACK)</b></a>
+    MainMethod : PUBLIC STATIC VOID MAIN LPAREN STRING LBRACK RBRACK_Identifier RPAREN LBRACE Statement RBRACE    (3)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    . error
+
+    Identifier <a href="#st53">goto 53</a>
+
+<hr><a name="st50"><b>state 50 (entry on Identifier)</b></a>
+    TypeIdentifier : Type Identifier_    (23)
+
+    RPAREN reduce 23
+    COMMA reduce 23
+    . error
+
+<hr><a name="st51"><b>state 51 (entry on COMMA)</b></a>
+    TypeIdentifierList : TypeIdentifierList COMMA_TypeIdentifier    (22)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    BOOLEAN <a href="#st29">shift 29</a>
+    INT <a href="#st30">shift 30</a>
+    . error
+
+    Identifier <a href="#st23">goto 23</a>
+    Type <a href="#st45">goto 45</a>
+    TypeIdentifier <a href="#st54">goto 54</a>
+
+<hr><a name="st52"><b>state 52 (entry on RPAREN)</b></a>
+    MethodDeclaration : PUBLIC Type Identifier LPAREN TypeIdentifiers RPAREN_LBRACE VarDeclarations Statements RETURN Expression SEMI RBRACE    (18)
+
+    LBRACE <a href="#st55">shift 55</a>
+    . error
+
+<hr><a name="st53"><b>state 53 (entry on Identifier)</b></a>
+    MainMethod : PUBLIC STATIC VOID MAIN LPAREN STRING LBRACK RBRACK Identifier_RPAREN LBRACE Statement RBRACE    (3)
+
+    RPAREN <a href="#st56">shift 56</a>
+    . error
+
+<hr><a name="st54"><b>state 54 (entry on TypeIdentifier)</b></a>
+    TypeIdentifierList : TypeIdentifierList COMMA TypeIdentifier_    (22)
+
+    RPAREN reduce 22
+    COMMA reduce 22
+    . error
+
+<hr><a name="st55"><b>state 55 (entry on LBRACE)</b></a>
+    MethodDeclaration : PUBLIC Type Identifier LPAREN TypeIdentifiers RPAREN LBRACE_VarDeclarations Statements RETURN Expression SEMI RBRACE    (18)
+    VarDeclarations : _    (11)
+
+    RETURN reduce 11
+    INT reduce 11
+    IF reduce 11
+    PRINTLN reduce 11
+    IDENTIFIER reduce 11
+    WHILE reduce 11
+    LBRACE reduce 11
+    BOOLEAN reduce 11
+    . error
+
+    VarDeclarations <a href="#st57">goto 57</a>
+
+<hr><a name="st56"><b>state 56 (entry on RPAREN)</b></a>
+    MainMethod : PUBLIC STATIC VOID MAIN LPAREN STRING LBRACK RBRACK Identifier RPAREN_LBRACE Statement RBRACE    (3)
+
+    LBRACE <a href="#st58">shift 58</a>
+    . error
+
+<hr><a name="st57"><b>state 57 (entry on VarDeclarations)</b></a>
+    MethodDeclaration : PUBLIC Type Identifier LPAREN TypeIdentifiers RPAREN LBRACE VarDeclarations_Statements RETURN Expression SEMI RBRACE    (18)
+    Statements : _    (24)
+    VarDeclarations : VarDeclarations_VarDeclaration    (12)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    BOOLEAN <a href="#st29">shift 29</a>
+    INT <a href="#st30">shift 30</a>
+    IF <a href="#st63">shift 63</a>
+    LBRACE <a href="#st64">shift 64</a>
+    PRINTLN <a href="#st65">shift 65</a>
+    WHILE <a href="#st66">shift 66</a>
+    RETURN reduce 24
+    . error
+
+    Identifier <a href="#st59">goto 59</a>
+    Statement <a href="#st60">goto 60</a>
+    StatementList <a href="#st61">goto 61</a>
+    Statements <a href="#st62">goto 62</a>
+    Type <a href="#st27">goto 27</a>
+    VarDeclaration <a href="#st28">goto 28</a>
+
+<hr><a name="st58"><b>state 58 (entry on LBRACE)</b></a>
+    MainMethod : PUBLIC STATIC VOID MAIN LPAREN STRING LBRACK RBRACK Identifier RPAREN LBRACE_Statement RBRACE    (3)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    IF <a href="#st63">shift 63</a>
+    LBRACE <a href="#st64">shift 64</a>
+    PRINTLN <a href="#st65">shift 65</a>
+    WHILE <a href="#st66">shift 66</a>
+    . error
+
+    Identifier <a href="#st67">goto 67</a>
+    Statement <a href="#st68">goto 68</a>
+
+<hr><a name="st59"><b>state 59 (entry on Identifier)</b></a>
+    Statement : Identifier_ASSIGN Expression SEMI    (37)
+    Statement : Identifier_LBRACK Expression RBRACK ASSIGN Expression SEMI    (38)
+    Type : Identifier_    (31)
+
+    ASSIGN <a href="#st69">shift 69</a>
+    LBRACK <a href="#st70">shift 70</a>
+    IDENTIFIER reduce 31
+    . error
+
+<hr><a name="st60"><b>state 60 (entry on Statement)</b></a>
+    StatementList : Statement_    (26)
+
+    RETURN reduce 26
+    RBRACE reduce 26
+    IF reduce 26
+    PRINTLN reduce 26
+    IDENTIFIER reduce 26
+    WHILE reduce 26
+    LBRACE reduce 26
+    . error
+
+<hr><a name="st61"><b>state 61 (entry on StatementList)</b></a>
+    StatementList : StatementList_Statement    (27)
+    Statements : StatementList_    (25)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    IF <a href="#st63">shift 63</a>
+    LBRACE <a href="#st64">shift 64</a>
+    PRINTLN <a href="#st65">shift 65</a>
+    WHILE <a href="#st66">shift 66</a>
+    RETURN reduce 25
+    RBRACE reduce 25
+    . error
+
+    Identifier <a href="#st67">goto 67</a>
+    Statement <a href="#st71">goto 71</a>
+
+<hr><a name="st62"><b>state 62 (entry on Statements)</b></a>
+    MethodDeclaration : PUBLIC Type Identifier LPAREN TypeIdentifiers RPAREN LBRACE VarDeclarations Statements_RETURN Expression SEMI RBRACE    (18)
+
+    RETURN <a href="#st72">shift 72</a>
+    . error
+
+<hr><a name="st63"><b>state 63 (entry on IF)</b></a>
+    Statement : IF_LPAREN Expression RPAREN Statement ELSE Statement    (33)
+    Statement : IF_LPAREN Expression RPAREN Statement    (34)
+
+    LPAREN <a href="#st73">shift 73</a>
+    . error
+
+<hr><a name="st64"><b>state 64 (entry on LBRACE)</b></a>
+    Statement : LBRACE_Statements RBRACE    (32)
+    Statements : _    (24)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    IF <a href="#st63">shift 63</a>
+    LBRACE <a href="#st64">shift 64</a>
+    PRINTLN <a href="#st65">shift 65</a>
+    WHILE <a href="#st66">shift 66</a>
+    RBRACE reduce 24
+    . error
+
+    Identifier <a href="#st67">goto 67</a>
+    Statement <a href="#st60">goto 60</a>
+    StatementList <a href="#st61">goto 61</a>
+    Statements <a href="#st74">goto 74</a>
+
+<hr><a name="st65"><b>state 65 (entry on PRINTLN)</b></a>
+    Statement : PRINTLN_LPAREN Expression RPAREN SEMI    (36)
+
+    LPAREN <a href="#st75">shift 75</a>
+    . error
+
+<hr><a name="st66"><b>state 66 (entry on WHILE)</b></a>
+    Statement : WHILE_LPAREN Expression RPAREN Statement    (35)
+
+    LPAREN <a href="#st76">shift 76</a>
+    . error
+
+<hr><a name="st67"><b>state 67 (entry on Identifier)</b></a>
+    Statement : Identifier_ASSIGN Expression SEMI    (37)
+    Statement : Identifier_LBRACK Expression RBRACK ASSIGN Expression SEMI    (38)
+
+    ASSIGN <a href="#st69">shift 69</a>
+    LBRACK <a href="#st70">shift 70</a>
+    . error
+
+<hr><a name="st68"><b>state 68 (entry on Statement)</b></a>
+    MainMethod : PUBLIC STATIC VOID MAIN LPAREN STRING LBRACK RBRACK Identifier RPAREN LBRACE Statement_RBRACE    (3)
+
+    RBRACE <a href="#st77">shift 77</a>
+    . error
+
+<hr><a name="st69"><b>state 69 (entry on ASSIGN)</b></a>
+    Statement : Identifier ASSIGN_Expression SEMI    (37)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st78">goto 78</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st70"><b>state 70 (entry on LBRACK)</b></a>
+    Statement : Identifier LBRACK_Expression RBRACK ASSIGN Expression SEMI    (38)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st87">goto 87</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st71"><b>state 71 (entry on Statement)</b></a>
+    StatementList : StatementList Statement_    (27)
+
+    RETURN reduce 27
+    RBRACE reduce 27
+    IF reduce 27
+    PRINTLN reduce 27
+    IDENTIFIER reduce 27
+    WHILE reduce 27
+    LBRACE reduce 27
+    . error
+
+<hr><a name="st72"><b>state 72 (entry on RETURN)</b></a>
+    MethodDeclaration : PUBLIC Type Identifier LPAREN TypeIdentifiers RPAREN LBRACE VarDeclarations Statements RETURN_Expression SEMI RBRACE    (18)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st88">goto 88</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st73"><b>state 73 (entry on LPAREN)</b></a>
+    Statement : IF LPAREN_Expression RPAREN Statement ELSE Statement    (33)
+    Statement : IF LPAREN_Expression RPAREN Statement    (34)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st89">goto 89</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st74"><b>state 74 (entry on Statements)</b></a>
+    Statement : LBRACE Statements_RBRACE    (32)
+
+    RBRACE <a href="#st90">shift 90</a>
+    . error
+
+<hr><a name="st75"><b>state 75 (entry on LPAREN)</b></a>
+    Statement : PRINTLN LPAREN_Expression RPAREN SEMI    (36)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st91">goto 91</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st76"><b>state 76 (entry on LPAREN)</b></a>
+    Statement : WHILE LPAREN_Expression RPAREN Statement    (35)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st92">goto 92</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st77"><b>state 77 (entry on RBRACE)</b></a>
+    MainMethod : PUBLIC STATIC VOID MAIN LPAREN STRING LBRACK RBRACK Identifier RPAREN LBRACE Statement RBRACE_    (3)
+
+    RBRACE reduce 3
+    . error
+
+<hr><a name="st78"><b>state 78 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    Statement : Identifier ASSIGN Expression_SEMI    (37)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SEMI <a href="#st99">shift 99</a>
+    SUBOP <a href="#st100">shift 100</a>
+    . error
+
+<hr><a name="st79"><b>state 79 (entry on Identifier)</b></a>
+    Expression : Identifier_    (54)
+
+    SEMI reduce 54
+    RPAREN reduce 54
+    RBRACK reduce 54
+    COMMA reduce 54
+    MULOP reduce 54
+    LT reduce 54
+    SUBOP reduce 54
+    LBRACK reduce 54
+    DOT reduce 54
+    AND reduce 54
+    ADDOP reduce 54
+    . error
+
+<hr><a name="st80"><b>state 80 (entry on FALSE)</b></a>
+    Expression : FALSE_    (53)
+
+    SEMI reduce 53
+    RPAREN reduce 53
+    RBRACK reduce 53
+    COMMA reduce 53
+    MULOP reduce 53
+    LT reduce 53
+    SUBOP reduce 53
+    LBRACK reduce 53
+    DOT reduce 53
+    AND reduce 53
+    ADDOP reduce 53
+    . error
+
+<hr><a name="st81"><b>state 81 (entry on INTEGER_LITERAL)</b></a>
+    Expression : INTEGER_LITERAL_    (51)
+
+    SEMI reduce 51
+    RPAREN reduce 51
+    RBRACK reduce 51
+    COMMA reduce 51
+    MULOP reduce 51
+    LT reduce 51
+    SUBOP reduce 51
+    LBRACK reduce 51
+    DOT reduce 51
+    AND reduce 51
+    ADDOP reduce 51
+    . error
+
+<hr><a name="st82"><b>state 82 (entry on LPAREN)</b></a>
+    Expression : LPAREN_Expression RPAREN    (59)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st101">goto 101</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st83"><b>state 83 (entry on NEW)</b></a>
+    Expression : NEW_INT LBRACK Expression RBRACK    (56)
+    Expression : NEW_Identifier LPAREN RPAREN    (57)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    INT <a href="#st103">shift 103</a>
+    . error
+
+    Identifier <a href="#st102">goto 102</a>
+
+<hr><a name="st84"><b>state 84 (entry on NOT)</b></a>
+    Expression : NOT_Expression    (58)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st104">goto 104</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st85"><b>state 85 (entry on THIS)</b></a>
+    Expression : THIS_    (55)
+
+    SEMI reduce 55
+    RPAREN reduce 55
+    RBRACK reduce 55
+    COMMA reduce 55
+    MULOP reduce 55
+    LT reduce 55
+    SUBOP reduce 55
+    LBRACK reduce 55
+    DOT reduce 55
+    AND reduce 55
+    ADDOP reduce 55
+    . error
+
+<hr><a name="st86"><b>state 86 (entry on TRUE)</b></a>
+    Expression : TRUE_    (52)
+
+    SEMI reduce 52
+    RPAREN reduce 52
+    RBRACK reduce 52
+    COMMA reduce 52
+    MULOP reduce 52
+    LT reduce 52
+    SUBOP reduce 52
+    LBRACK reduce 52
+    DOT reduce 52
+    AND reduce 52
+    ADDOP reduce 52
+    . error
+
+<hr><a name="st87"><b>state 87 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    Statement : Identifier LBRACK Expression_RBRACK ASSIGN Expression SEMI    (38)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    RBRACK <a href="#st105">shift 105</a>
+    . error
+
+<hr><a name="st88"><b>state 88 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    MethodDeclaration : PUBLIC Type Identifier LPAREN TypeIdentifiers RPAREN LBRACE VarDeclarations Statements RETURN Expression_SEMI RBRACE    (18)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    SEMI <a href="#st106">shift 106</a>
+    . error
+
+<hr><a name="st89"><b>state 89 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    Statement : IF LPAREN Expression_RPAREN Statement ELSE Statement    (33)
+    Statement : IF LPAREN Expression_RPAREN Statement    (34)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    RPAREN <a href="#st107">shift 107</a>
+    . error
+
+<hr><a name="st90"><b>state 90 (entry on RBRACE)</b></a>
+    Statement : LBRACE Statements RBRACE_    (32)
+
+    RETURN reduce 32
+    RBRACE reduce 32
+    IF reduce 32
+    PRINTLN reduce 32
+    IDENTIFIER reduce 32
+    WHILE reduce 32
+    ELSE reduce 32
+    LBRACE reduce 32
+    . error
+
+<hr><a name="st91"><b>state 91 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    Statement : PRINTLN LPAREN Expression_RPAREN SEMI    (36)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    RPAREN <a href="#st108">shift 108</a>
+    . error
+
+<hr><a name="st92"><b>state 92 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    Statement : WHILE LPAREN Expression_RPAREN Statement    (35)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    RPAREN <a href="#st109">shift 109</a>
+    . error
+
+<hr><a name="st93"><b>state 93 (entry on ADDOP)</b></a>
+    Expression : Expression ADDOP_Expression    (45)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st110">goto 110</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st94"><b>state 94 (entry on AND)</b></a>
+    Expression : Expression AND_Expression    (43)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st111">goto 111</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st95"><b>state 95 (entry on DOT)</b></a>
+    Expression : Expression DOT_LENGTH    (49)
+    Expression : Expression DOT_Identifier LPAREN Expressions RPAREN    (50)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    LENGTH <a href="#st113">shift 113</a>
+    . error
+
+    Identifier <a href="#st112">goto 112</a>
+
+<hr><a name="st96"><b>state 96 (entry on LBRACK)</b></a>
+    Expression : Expression LBRACK_Expression RBRACK    (48)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st114">goto 114</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st97"><b>state 97 (entry on LT)</b></a>
+    Expression : Expression LT_Expression    (44)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st115">goto 115</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st98"><b>state 98 (entry on MULOP)</b></a>
+    Expression : Expression MULOP_Expression    (47)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st116">goto 116</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st99"><b>state 99 (entry on SEMI)</b></a>
+    Statement : Identifier ASSIGN Expression SEMI_    (37)
+
+    RETURN reduce 37
+    RBRACE reduce 37
+    IF reduce 37
+    PRINTLN reduce 37
+    IDENTIFIER reduce 37
+    WHILE reduce 37
+    ELSE reduce 37
+    LBRACE reduce 37
+    . error
+
+<hr><a name="st100"><b>state 100 (entry on SUBOP)</b></a>
+    Expression : Expression SUBOP_Expression    (46)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st117">goto 117</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st101"><b>state 101 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    Expression : LPAREN Expression_RPAREN    (59)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    RPAREN <a href="#st118">shift 118</a>
+    . error
+
+<hr><a name="st102"><b>state 102 (entry on Identifier)</b></a>
+    Expression : NEW Identifier_LPAREN RPAREN    (57)
+
+    LPAREN <a href="#st119">shift 119</a>
+    . error
+
+<hr><a name="st103"><b>state 103 (entry on INT)</b></a>
+    Expression : NEW INT_LBRACK Expression RBRACK    (56)
+
+    LBRACK <a href="#st120">shift 120</a>
+    . error
+
+<hr><a name="st104"><b>state 104 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    Expression : NOT Expression_    (58)
+
+    SEMI reduce 58
+    RPAREN reduce 58
+    RBRACK reduce 58
+    COMMA reduce 58
+    MULOP reduce 58
+    LT reduce 58
+    SUBOP reduce 58
+    LBRACK reduce 58
+    DOT reduce 58
+    AND reduce 58
+    ADDOP reduce 58
+    . error
+
+<hr><a name="st105"><b>state 105 (entry on RBRACK)</b></a>
+    Statement : Identifier LBRACK Expression RBRACK_ASSIGN Expression SEMI    (38)
+
+    ASSIGN <a href="#st121">shift 121</a>
+    . error
+
+<hr><a name="st106"><b>state 106 (entry on SEMI)</b></a>
+    MethodDeclaration : PUBLIC Type Identifier LPAREN TypeIdentifiers RPAREN LBRACE VarDeclarations Statements RETURN Expression SEMI_RBRACE    (18)
+
+    RBRACE <a href="#st122">shift 122</a>
+    . error
+
+<hr><a name="st107"><b>state 107 (entry on RPAREN)</b></a>
+    Statement : IF LPAREN Expression RPAREN_Statement ELSE Statement    (33)
+    Statement : IF LPAREN Expression RPAREN_Statement    (34)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    IF <a href="#st63">shift 63</a>
+    LBRACE <a href="#st64">shift 64</a>
+    PRINTLN <a href="#st65">shift 65</a>
+    WHILE <a href="#st66">shift 66</a>
+    . error
+
+    Identifier <a href="#st67">goto 67</a>
+    Statement <a href="#st123">goto 123</a>
+
+<hr><a name="st108"><b>state 108 (entry on RPAREN)</b></a>
+    Statement : PRINTLN LPAREN Expression RPAREN_SEMI    (36)
+
+    SEMI <a href="#st124">shift 124</a>
+    . error
+
+<hr><a name="st109"><b>state 109 (entry on RPAREN)</b></a>
+    Statement : WHILE LPAREN Expression RPAREN_Statement    (35)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    IF <a href="#st63">shift 63</a>
+    LBRACE <a href="#st64">shift 64</a>
+    PRINTLN <a href="#st65">shift 65</a>
+    WHILE <a href="#st66">shift 66</a>
+    . error
+
+    Identifier <a href="#st67">goto 67</a>
+    Statement <a href="#st125">goto 125</a>
+
+<hr><a name="st110"><b>state 110 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression ADDOP Expression_    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+
+    SEMI reduce 45
+    RPAREN reduce 45
+    RBRACK reduce 45
+    COMMA reduce 45
+    MULOP reduce 45
+    LT reduce 45
+    SUBOP reduce 45
+    LBRACK reduce 45
+    DOT reduce 45
+    AND reduce 45
+    ADDOP reduce 45
+    . error
+
+<hr><a name="st111"><b>state 111 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression AND Expression_    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+
+    SEMI reduce 43
+    RPAREN reduce 43
+    RBRACK reduce 43
+    COMMA reduce 43
+    MULOP reduce 43
+    LT reduce 43
+    SUBOP reduce 43
+    LBRACK reduce 43
+    DOT reduce 43
+    AND reduce 43
+    ADDOP reduce 43
+    . error
+
+<hr><a name="st112"><b>state 112 (entry on Identifier)</b></a>
+    Expression : Expression DOT Identifier_LPAREN Expressions RPAREN    (50)
+
+    LPAREN <a href="#st126">shift 126</a>
+    . error
+
+<hr><a name="st113"><b>state 113 (entry on LENGTH)</b></a>
+    Expression : Expression DOT LENGTH_    (49)
+
+    SEMI reduce 49
+    RPAREN reduce 49
+    RBRACK reduce 49
+    COMMA reduce 49
+    MULOP reduce 49
+    LT reduce 49
+    SUBOP reduce 49
+    LBRACK reduce 49
+    DOT reduce 49
+    AND reduce 49
+    ADDOP reduce 49
+    . error
+
+<hr><a name="st114"><b>state 114 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression LBRACK Expression_RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    RBRACK <a href="#st127">shift 127</a>
+    . error
+
+<hr><a name="st115"><b>state 115 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression LT Expression_    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+
+    SEMI reduce 44
+    RPAREN reduce 44
+    RBRACK reduce 44
+    COMMA reduce 44
+    MULOP reduce 44
+    LT reduce 44
+    SUBOP reduce 44
+    LBRACK reduce 44
+    DOT reduce 44
+    AND reduce 44
+    ADDOP reduce 44
+    . error
+
+<hr><a name="st116"><b>state 116 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression MULOP Expression_    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+
+    SEMI reduce 47
+    RPAREN reduce 47
+    RBRACK reduce 47
+    COMMA reduce 47
+    MULOP reduce 47
+    LT reduce 47
+    SUBOP reduce 47
+    LBRACK reduce 47
+    DOT reduce 47
+    AND reduce 47
+    ADDOP reduce 47
+    . error
+
+<hr><a name="st117"><b>state 117 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression SUBOP Expression_    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+
+    SEMI reduce 46
+    RPAREN reduce 46
+    RBRACK reduce 46
+    COMMA reduce 46
+    MULOP reduce 46
+    LT reduce 46
+    SUBOP reduce 46
+    LBRACK reduce 46
+    DOT reduce 46
+    AND reduce 46
+    ADDOP reduce 46
+    . error
+
+<hr><a name="st118"><b>state 118 (entry on RPAREN)</b></a>
+    Expression : LPAREN Expression RPAREN_    (59)
+
+    SEMI reduce 59
+    RPAREN reduce 59
+    RBRACK reduce 59
+    COMMA reduce 59
+    MULOP reduce 59
+    LT reduce 59
+    SUBOP reduce 59
+    LBRACK reduce 59
+    DOT reduce 59
+    AND reduce 59
+    ADDOP reduce 59
+    . error
+
+<hr><a name="st119"><b>state 119 (entry on LPAREN)</b></a>
+    Expression : NEW Identifier LPAREN_RPAREN    (57)
+
+    RPAREN <a href="#st128">shift 128</a>
+    . error
+
+<hr><a name="st120"><b>state 120 (entry on LBRACK)</b></a>
+    Expression : NEW INT LBRACK_Expression RBRACK    (56)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st129">goto 129</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st121"><b>state 121 (entry on ASSIGN)</b></a>
+    Statement : Identifier LBRACK Expression RBRACK ASSIGN_Expression SEMI    (38)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st130">goto 130</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st122"><b>state 122 (entry on RBRACE)</b></a>
+    MethodDeclaration : PUBLIC Type Identifier LPAREN TypeIdentifiers RPAREN LBRACE VarDeclarations Statements RETURN Expression SEMI RBRACE_    (18)
+
+    RBRACE reduce 18
+    PUBLIC reduce 18
+    . error
+
+<hr><a name="st123"><b>state 123 (entry on Statement)</b></a>
+    Statement : IF LPAREN Expression RPAREN Statement_ELSE Statement    (33)
+    Statement : IF LPAREN Expression RPAREN Statement_    (34)
+
+    ELSE <a href="#st131">shift 131</a>
+    RETURN reduce 34
+    RBRACE reduce 34
+    IF reduce 34
+    PRINTLN reduce 34
+    IDENTIFIER reduce 34
+    WHILE reduce 34
+    LBRACE reduce 34
+    . error
+
+<hr><a name="st124"><b>state 124 (entry on SEMI)</b></a>
+    Statement : PRINTLN LPAREN Expression RPAREN SEMI_    (36)
+
+    RETURN reduce 36
+    RBRACE reduce 36
+    IF reduce 36
+    PRINTLN reduce 36
+    IDENTIFIER reduce 36
+    WHILE reduce 36
+    ELSE reduce 36
+    LBRACE reduce 36
+    . error
+
+<hr><a name="st125"><b>state 125 (entry on Statement)</b></a>
+    Statement : WHILE LPAREN Expression RPAREN Statement_    (35)
+
+    RETURN reduce 35
+    RBRACE reduce 35
+    IF reduce 35
+    PRINTLN reduce 35
+    IDENTIFIER reduce 35
+    WHILE reduce 35
+    ELSE reduce 35
+    LBRACE reduce 35
+    . error
+
+<hr><a name="st126"><b>state 126 (entry on LPAREN)</b></a>
+    Expression : Expression DOT Identifier LPAREN_Expressions RPAREN    (50)
+    Expressions : _    (39)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    RPAREN reduce 39
+    . error
+
+    Expression <a href="#st132">goto 132</a>
+    ExpressionList <a href="#st133">goto 133</a>
+    Expressions <a href="#st134">goto 134</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st127"><b>state 127 (entry on RBRACK)</b></a>
+    Expression : Expression LBRACK Expression RBRACK_    (48)
+
+    SEMI reduce 48
+    RPAREN reduce 48
+    RBRACK reduce 48
+    COMMA reduce 48
+    MULOP reduce 48
+    LT reduce 48
+    SUBOP reduce 48
+    LBRACK reduce 48
+    DOT reduce 48
+    AND reduce 48
+    ADDOP reduce 48
+    . error
+
+<hr><a name="st128"><b>state 128 (entry on RPAREN)</b></a>
+    Expression : NEW Identifier LPAREN RPAREN_    (57)
+
+    SEMI reduce 57
+    RPAREN reduce 57
+    RBRACK reduce 57
+    COMMA reduce 57
+    MULOP reduce 57
+    LT reduce 57
+    SUBOP reduce 57
+    LBRACK reduce 57
+    DOT reduce 57
+    AND reduce 57
+    ADDOP reduce 57
+    . error
+
+<hr><a name="st129"><b>state 129 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    Expression : NEW INT LBRACK Expression_RBRACK    (56)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    RBRACK <a href="#st135">shift 135</a>
+    . error
+
+<hr><a name="st130"><b>state 130 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    Statement : Identifier LBRACK Expression RBRACK ASSIGN Expression_SEMI    (38)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    SEMI <a href="#st136">shift 136</a>
+    . error
+
+<hr><a name="st131"><b>state 131 (entry on ELSE)</b></a>
+    Statement : IF LPAREN Expression RPAREN Statement ELSE_Statement    (33)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    IF <a href="#st63">shift 63</a>
+    LBRACE <a href="#st64">shift 64</a>
+    PRINTLN <a href="#st65">shift 65</a>
+    WHILE <a href="#st66">shift 66</a>
+    . error
+
+    Identifier <a href="#st67">goto 67</a>
+    Statement <a href="#st137">goto 137</a>
+
+<hr><a name="st132"><b>state 132 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    ExpressionList : Expression_    (41)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    RPAREN reduce 41
+    COMMA reduce 41
+    . error
+
+<hr><a name="st133"><b>state 133 (entry on ExpressionList)</b></a>
+    ExpressionList : ExpressionList_COMMA Expression    (42)
+    Expressions : ExpressionList_    (40)
+
+    COMMA <a href="#st138">shift 138</a>
+    RPAREN reduce 40
+    . error
+
+<hr><a name="st134"><b>state 134 (entry on Expressions)</b></a>
+    Expression : Expression DOT Identifier LPAREN Expressions_RPAREN    (50)
+
+    RPAREN <a href="#st139">shift 139</a>
+    . error
+
+<hr><a name="st135"><b>state 135 (entry on RBRACK)</b></a>
+    Expression : NEW INT LBRACK Expression RBRACK_    (56)
+
+    SEMI reduce 56
+    RPAREN reduce 56
+    RBRACK reduce 56
+    COMMA reduce 56
+    MULOP reduce 56
+    LT reduce 56
+    SUBOP reduce 56
+    LBRACK reduce 56
+    DOT reduce 56
+    AND reduce 56
+    ADDOP reduce 56
+    . error
+
+<hr><a name="st136"><b>state 136 (entry on SEMI)</b></a>
+    Statement : Identifier LBRACK Expression RBRACK ASSIGN Expression SEMI_    (38)
+
+    RETURN reduce 38
+    RBRACE reduce 38
+    IF reduce 38
+    PRINTLN reduce 38
+    IDENTIFIER reduce 38
+    WHILE reduce 38
+    ELSE reduce 38
+    LBRACE reduce 38
+    . error
+
+<hr><a name="st137"><b>state 137 (entry on Statement)</b></a>
+    Statement : IF LPAREN Expression RPAREN Statement ELSE Statement_    (33)
+
+    RETURN reduce 33
+    RBRACE reduce 33
+    IF reduce 33
+    PRINTLN reduce 33
+    IDENTIFIER reduce 33
+    WHILE reduce 33
+    ELSE reduce 33
+    LBRACE reduce 33
+    . error
+
+<hr><a name="st138"><b>state 138 (entry on COMMA)</b></a>
+    ExpressionList : ExpressionList COMMA_Expression    (42)
+
+    IDENTIFIER <a href="#st9">shift 9</a>
+    FALSE <a href="#st80">shift 80</a>
+    INTEGER_LITERAL <a href="#st81">shift 81</a>
+    LPAREN <a href="#st82">shift 82</a>
+    NEW <a href="#st83">shift 83</a>
+    NOT <a href="#st84">shift 84</a>
+    THIS <a href="#st85">shift 85</a>
+    TRUE <a href="#st86">shift 86</a>
+    . error
+
+    Expression <a href="#st140">goto 140</a>
+    Identifier <a href="#st79">goto 79</a>
+
+<hr><a name="st139"><b>state 139 (entry on RPAREN)</b></a>
+    Expression : Expression DOT Identifier LPAREN Expressions RPAREN_    (50)
+
+    SEMI reduce 50
+    RPAREN reduce 50
+    RBRACK reduce 50
+    COMMA reduce 50
+    MULOP reduce 50
+    LT reduce 50
+    SUBOP reduce 50
+    LBRACK reduce 50
+    DOT reduce 50
+    AND reduce 50
+    ADDOP reduce 50
+    . error
+
+<hr><a name="st140"><b>state 140 (entry on Expression)</b></a>
+    Expression : Expression_AND Expression    (43)
+    Expression : Expression_LT Expression    (44)
+    Expression : Expression_ADDOP Expression    (45)
+    Expression : Expression_SUBOP Expression    (46)
+    Expression : Expression_MULOP Expression    (47)
+    Expression : Expression_LBRACK Expression RBRACK    (48)
+    Expression : Expression_DOT LENGTH    (49)
+    Expression : Expression_DOT Identifier LPAREN Expressions RPAREN    (50)
+    ExpressionList : ExpressionList COMMA Expression_    (42)
+
+    ADDOP <a href="#st93">shift 93</a>
+    AND <a href="#st94">shift 94</a>
+    DOT <a href="#st95">shift 95</a>
+    LBRACK <a href="#st96">shift 96</a>
+    LT <a href="#st97">shift 97</a>
+    MULOP <a href="#st98">shift 98</a>
+    SUBOP <a href="#st100">shift 100</a>
+    RPAREN reduce 42
+    COMMA reduce 42
+    . error
+
+41 terminals, 23 nonterminals;
+60 grammar rules, 141 states;
+0 shift/reduce and 0 reduce/reduce conflicts reported.
+</pre>
+</body>
+</html>
